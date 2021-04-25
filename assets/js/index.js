@@ -17,7 +17,18 @@ const [prevButton, nextButton] = document.querySelectorAll(
 
 updateView(slider.currentSlide);
 
-prevButton.addEventListener("click", () => {
+function createButtonHandler(action = 'next'){
+  return () => {
+    const newImage = slider[action]();
+    updateView(newImage);
+  }
+}
+
+prevButton.addEventListener("click", createButtonHandler('prev'));
+nextButton.addEventListener("click", createButtonHandler('next'));
+
+
+/* prevButton.addEventListener("click", () => {
   const newImage = slider.prev();
   updateView(newImage);
 });
@@ -26,6 +37,8 @@ nextButton.addEventListener("click", () => {
   const newImage = slider.next();
   updateView(newImage);
 });
+
+*/
 
 function updateView(imgLink) {
   slideImage.setAttribute("src", imgLink);
