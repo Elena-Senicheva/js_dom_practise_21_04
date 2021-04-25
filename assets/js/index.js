@@ -1,60 +1,16 @@
 'use strict';
 
-//для первой button событие нажатия
-
-const [firstButton] = document.getElementsByTagName('button');
-
-function alertOnClick(){
-  alert('Success!');
-}
-
-firstButton.addEventListener('click', alertOnClick);
-
-// если несколько кнопок с один.классом
-const buttons = [...document.getElementsByClassName('main-button')];
-
-buttons.forEach((elem) => {
-elem.addEventListener('click', alertOnClick);
-});
-
-const buttons = document.getElementsByClassName('main-button');
-
-for(elem of buttons){
-  elem.addEventListener('click', alertOnClick);
-}
+const heading = document.querySelector('.art > h1');
+const img = document.querySelector('.art > img');
+const span = document.querySelector('.art > p > span');
 
 
- //Выбирает все элементы по тегу
-document.getElementsByTagName 
- 
-//Выбирает все элементы по названию класса
-document.getElementsByClassName 
+//или 
 
-const [mainSection] = document.getElementsByClassName('main-section');
-//или селектор
-const mainSection = document.querySelector(".main-section");
+const art = document.querySelector('.art');
 
-console.log(mainSection);
- 
-//Выбирает элемент по его id
-document.getElementById 
+const heading = art.querySelector('h1');
+const img = art.querySelector('img');
+const span = art.querySelector('p > span');
 
-const par = document.getElementById('unique');
-//или
-const par = document.querySelector("#unique");
-console.log(par); 
-
- //Выбирает все элементы, которые соответствуют css селектору
-document.querySelectorAll('#list > li > span') 
-
-const heading = document.querySelector(".main-section > h1");
-console.log(heading)
- 
-//Выбирает первый найденный элемент, который соответствует css селектору
-document.querySelector
-
-
-
-
-
-
+console.log(heading, img, span);
