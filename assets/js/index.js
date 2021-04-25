@@ -24,6 +24,14 @@ function createButtonHandler(action = 'next'){
   }
 }
 
+// можно сократить 
+
+/*const createButtonHandler = (action = "next") => () => {
+  const newImage = slider[action]();
+  updateView(newImage);
+};
+*/
+
 prevButton.addEventListener("click", createButtonHandler('prev'));
 nextButton.addEventListener("click", createButtonHandler('next'));
 
