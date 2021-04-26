@@ -1,35 +1,23 @@
-function makeCounter(){
-  let count = 0;
-  return {
-    increment(){
-      return ++count;
-    },
-    decrement(){
-      return --count;
+const btn = document.querySelector('#unique');
+
+const btnHandler = ()=>{
+  alert('success');
+  btn.removeEventListener('click', btnHandler);
+}
+
+btn.addEventListener('click', btnHandler);
+//или но тогда убираем btn.removeEventListener
+btn.addEventListener('click', btnHandler, {once: true});
+
+//пример с заміканием
+function createBtnHandler(clicksAmount = 5) {
+  const btnHandler = () => {
+    alert("success");
+    clicksAmount--;
+    if (clicksAmount === 0) {
+      btn.removeEventListener("click", btnHandler);
     }
-  }
+  };
+  return btnHandler;
 }
-
-const counter1 = makeCounter();
-const counter2 = makeCounter(); 
-
-/* 
- Напишите функцию createAdder(n), 
- которая вернёт другую функцию.
- Возвращенная функция должна складывать
- Получаемый аргумент m с аргументом n возвращаюей функции.
-const adder = createAdder(10);
-adder(10) //20
-adder(50) //70
-adder(100) //170
-*/
-
-function createAdder(n){
-  return function (m) {
-    return n+=m;
- }
-}
-// упрощенній вариант
-// const createAdder = (n) =>  (m) => (n+=m);
-
-const adder = createAdder(10);
+btn.addEventListener("click", createBtnHandler(3));
