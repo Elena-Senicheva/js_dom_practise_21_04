@@ -1,25 +1,17 @@
-const btn = document.querySelector('#unique');
+// поменять местами содержимое двух кнопок при нажатии
+const [btn1,btn2] = document.querySelectorAll('.change-button');
 
-const btnHandler = ()=>{
-  alert('success');
-  btn.removeEventListener('click', btnHandler);
+const btnEnterHandler = ()=>{
+  const temp = btn1.innerText;
+  btn1.innerText = btn2.innerText;
+  btn2.innerText = temp;
+
+   // или [btn1.innerText, btn2.innerText] = [btn2.innerText, btn1.innerText]
 }
 
-btn.addEventListener('click', btnHandler);
-//или но тогда убираем btn.removeEventListener
-btn.addEventListener('click', btnHandler, {once: true});
+btn1.addEventListener('mouseenter', btnEnterHandler);
 
-//пример с заміканием
-function createBtnHandler(clicksAmount = 5) {
-  const btnHandler = () => {
-    alert("success");
-    clicksAmount--;
-    if (clicksAmount === 0) {
-      btn.removeEventListener("click", btnHandler);
-    }
-  };
-  return btnHandler;
-}
-btn.addEventListener("click", createBtnHandler(3));
+btn2.addEventListener('mouseenter', btnEnterHandler);
+
 
 
