@@ -1,17 +1,18 @@
-// поменять местами содержимое двух кнопок при нажатии
-const [btn1,btn2] = document.querySelectorAll('.change-button');
+'use strict';
 
-const btnEnterHandler = ()=>{
-  const temp = btn1.innerText;
-  btn1.innerText = btn2.innerText;
-  btn2.innerText = temp;
+const btns = document.querySelectorAll("button");
 
-   // или [btn1.innerText, btn2.innerText] = [btn2.innerText, btn1.innerText]
+const clickHandler = ({
+  target: {
+    parentNode,dataset: { color},
+  },
+}) => {
+parentNode.style.background = color;
+};
+
+for (const btn of btns) {
+  btn.addEventListener("click", clickHandler);
 }
-
-btn1.addEventListener('mouseenter', btnEnterHandler);
-
-btn2.addEventListener('mouseenter', btnEnterHandler);
 
 
 
