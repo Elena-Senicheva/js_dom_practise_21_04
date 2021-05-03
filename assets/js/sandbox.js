@@ -21,3 +21,5 @@ function createBtnHandler(clicksAmount = 5) {
   return btnHandler;
 }
 btn.addEventListener("click", createBtnHandler(3));
+
+
