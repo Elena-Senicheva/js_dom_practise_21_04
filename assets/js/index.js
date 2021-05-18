@@ -1,53 +1,25 @@
-'use strict';
 
-const imageDB = [
-  "https://www.w3schools.com/bootstrap/chicago.jpg",
-  "https://www.w3schools.com/bootstrap/ny.jpg",
-  "https://www.w3schools.com/bootstrap/la.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png",
-  "https://html5css.ru/css/img_lights.jpg",
-];
-
-const slider = new Slider(imageDB);
-
-const slideImage = document.querySelector(".slide");
-const [prevButton, nextButton] = document.querySelectorAll(
-  ".slider-container > button"
-);
-
-updateView(slider.currentSlide);
-
-function createButtonHandler(action = 'next'){
-  return () => {
-    const newImage = slider[action]();
-    updateView(newImage);
+/*function count(){
+  let i=0;
+const id = setInterval(()=> {
+   console.log(++i);
+  if(i >= 20) {
+    clearInterval(id);
   }
-}
+},500)
+} 
 
-// можно сократить 
+count(); */
 
-/*const createButtonHandler = (action = "next") => () => {
-  const newImage = slider[action]();
-  updateView(newImage);
-};
-*/
+const btn= document.getElementById("testButton");
 
-prevButton.addEventListener("click", createButtonHandler('prev'));
-nextButton.addEventListener("click", createButtonHandler('next'));
+btn.addEventListener('click',clickHandler());
 
+function clickHandler(){
 
-/* prevButton.addEventListener("click", () => {
-  const newImage = slider.prev();
-  updateView(newImage);
-});
-
-nextButton.addEventListener("click", () => {
-  const newImage = slider.next();
-  updateView(newImage);
-});
-
-*/
-
-function updateView(imgLink) {
-  slideImage.setAttribute("src", imgLink);
+  return(e) => {
+    setTimeout(()=> {
+      alert('Single');
+      },500)
+  }
 }
